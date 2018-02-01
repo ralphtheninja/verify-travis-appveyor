@@ -1,0 +1,37 @@
+{
+  "name": "verify-travis-appveyor",
+  "version": "0.0.0",
+  "description": "Ensure node versions on travis and appveyor are consistent",
+  "bin": {
+    "verify-travis-appveyor": "index.js"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "array-equal": "^1.0.0",
+    "debug": "^3.1.0",
+    "read-yaml": "^1.1.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "tape": "^4.8.0"
+  },
+  "homepage": "https://github.com/ralphtheninja/verify-travis-appveyor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ralphtheninja/verify-travis-appveyor.git"
+  },
+  "scripts": {
+    "test": "tape test && standard"
+  },
+  "author": "Lars-Magnus Skog <ralphtheninja@riseup.net>",
+  "keywords": [
+    "verify",
+    "travis",
+    "appveyor",
+    "maintenance"
+  ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "license": "MIT"
+}
