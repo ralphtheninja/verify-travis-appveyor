@@ -1,5 +1,6 @@
 const test = require('tape')
 const main = require('..')
+const exec = require('child_process').exec
 
 test('travis', t => {
   t.throws(main.travisVersions.bind(null, {
@@ -104,4 +105,23 @@ test('appveyor', t => {
   }), [ 8, 9 ], 'filters out undefined')
 
   t.end()
+})
+
+test('cli', t => {
+  t.test('fail', t => {
+    const cwd = `${__dirname}/fail`
+    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+      t.ok(err, 'should be an error')
+      t.equal(stderr.trimRight(), 'travis:["6","9"] and appveyor:["6","8"] are inconsistent')
+      t.end()
+    })
+  })
+  t.test('success', t => {
+    const cwd = `${__dirname}/success`
+    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+      t.error(err, 'no error')
+      t.equal(stdout.trimRight(), 'OK!')
+      t.end()
+    })
+  })
 })

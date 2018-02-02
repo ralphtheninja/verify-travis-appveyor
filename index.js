@@ -33,6 +33,7 @@ if (!module.parent) {
     console.error(err.message || err)
     process.exit(1)
   }
+  debug('cwd is', cwd)
   parseYaml(path.join(cwd, '.travis.yml'), (err, travis) => {
     if (err) return exit('invalid or missing .travis.yml')
     debug('travis', JSON.stringify(travis, null, 2))
