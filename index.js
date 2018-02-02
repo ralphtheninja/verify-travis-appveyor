@@ -11,6 +11,7 @@ const travisVersions = obj => {
   if (obj.matrix && Array.isArray(obj.matrix.include)) {
     return obj.matrix.include
       .map(i => i.node_js)
+      .filter(Boolean)
       .filter(i => String(i).toLowerCase() !== 'stable')
   }
   throw new Error('no valid node versions')
@@ -18,7 +19,8 @@ const travisVersions = obj => {
 
 const appveyorVersions = obj => {
   if (obj.environment && Array.isArray(obj.environment.matrix)) {
-    return obj.environment.matrix.map(i => i.nodejs_version)
+    return obj.environment.matrix.map(i => i.nodejs_version).filter(Boolean)
+
   }
   throw new Error('no valid node versions')
 }
