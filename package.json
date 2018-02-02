@@ -21,7 +21,8 @@
     "url": "https://github.com/ralphtheninja/verify-travis-appveyor.git"
   },
   "scripts": {
-    "test": "tape test && standard"
+    "test": "tape test && standard",
+    "prepublishOnly": "node index.js"
   },
   "author": "Lars-Magnus Skog <ralphtheninja@riseup.net>",
   "keywords": [
