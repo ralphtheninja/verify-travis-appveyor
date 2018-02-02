@@ -20,7 +20,6 @@ const travisVersions = obj => {
 const appveyorVersions = obj => {
   if (obj.environment && Array.isArray(obj.environment.matrix)) {
     return obj.environment.matrix.map(i => i.nodejs_version).filter(Boolean)
-
   }
   throw new Error('no valid node versions')
 }

@@ -80,7 +80,7 @@ test('appveyor', t => {
       matrix: [
         { nodejs_version: '6' },
         { nodejs_version: '8' },
-        { nodejs_version: '9' },
+        { nodejs_version: '9' }
       ]
     }
   }), [ '6', '8', '9' ])
@@ -89,7 +89,7 @@ test('appveyor', t => {
       matrix: [
         { nodejs_version: 6 },
         { nodejs_version: 8 },
-        { nodejs_version: 9 },
+        { nodejs_version: 9 }
       ]
     }
   }), [ 6, 8, 9 ])
@@ -98,7 +98,7 @@ test('appveyor', t => {
       matrix: [
         {},
         { nodejs_version: 8 },
-        { nodejs_version: 9 },
+        { nodejs_version: 9 }
       ]
     }
   }), [ 8, 9 ], 'filters out undefined')
