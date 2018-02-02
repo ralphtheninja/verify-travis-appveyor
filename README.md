@@ -11,21 +11,21 @@ Useful as a maintenance script to ensure travis and appveyor are using the same 
 ## Install
 
 ```
-$ npm i verify-travis-appveyor -S
+$ npm i verify-travis-appveyor -g
 ```
 
 ## Usage
 
 Run `verify-travis-appveyor` in a project folder containing a `.travis.yml` and a `appveyor.yml`.
 
-If they both contain the same node versions, `OK!` will be printed together with an exit code of `0`.
+`OK!` will be printed together with an exit code of `0` if they are both consistent.
 
 ```
 $ verify-travis-appveyor
 OK!
 ```
 
-If travis and appveyor are inconsistent an error message will be printed together with an exit code of `1`. E.g.
+An error message will be printed together with an exit code of `1` if they are inconsistent.
 
 ```
 $ verify-travis-appveyor
