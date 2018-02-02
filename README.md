@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/ralphtheninja/verify-travis-appveyor.svg?branch=master)](https://travis-ci.org/ralphtheninja/verify-travis-appveyor)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Useful as a maintenance script to ensure travis and appveyor are using the same node versions. Running it in a `prepublish` script in your `package.json` will let you know if you have missed anything.
+Useful as a maintenance script to ensure travis and appveyor are using the same node versions. Running it in a `prepublishOnly` script in your `package.json` will let you know if you have missed anything.
 
 ## Install
 
