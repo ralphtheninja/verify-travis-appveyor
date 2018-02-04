@@ -31,6 +31,8 @@ $ verify-travis-appveyor
 travis:["6","8","9"] and appveyor:["4","6","8"] are inconsistent
 ```
 
+Additionally outputs a `WARNING` for each node version that have reached End of Life (EOL).
+
 ## License
 
 MIT
