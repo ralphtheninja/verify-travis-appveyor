@@ -18,11 +18,10 @@ $ npm i verify-travis-appveyor -g
 
 Run `verify-travis-appveyor` in a project folder containing a `.travis.yml` and a `appveyor.yml`.
 
-`OK!` will be printed together with an exit code of `0` if they are both consistent.
+Exits with code `0` if they are both consistent.
 
 ```
 $ verify-travis-appveyor
-OK!
 ```
 
 An error message will be printed together with an exit code of `1` if they are inconsistent.

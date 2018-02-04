@@ -4,6 +4,7 @@ const path = require('path')
 const parseYaml = require('read-yaml')
 const debug = require('debug')('verify-travis-appveyor')
 const equals = require('array-equal')
+const isEOL = require('lts-schedule').isEOL
 const cwd = process.cwd()
 
 const travisVersions = obj => {
@@ -46,10 +47,12 @@ if (!module.parent) {
         if (!equals(lhs, rhs)) {
           exit(`travis:${JSON.stringify(lhs)} and appveyor:${JSON.stringify(rhs)} are inconsistent`)
         }
+        lhs.filter(isEOL).forEach(v => {
+          console.log(`WARNING: version ${v} is EOL`)
+        })
       } catch (err) {
         exit(err)
       }
-      console.log('OK!')
     })
   })
 }

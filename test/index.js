@@ -116,11 +116,20 @@ test('cli', t => {
       t.end()
     })
   })
+  t.test('warning', t => {
+    const cwd = `${__dirname}/warning`
+    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+      t.error(err, 'no error')
+      const expected = 'WARNING: version 5 is EOL\n' +
+              'WARNING: version 7 is EOL\n'
+      t.equal(stdout, expected, 'correct output')
+      t.end()
+    })
+  })
   t.test('success', t => {
     const cwd = `${__dirname}/success`
     exec('../../index.js', { cwd }, (err, stdout, stderr) => {
       t.error(err, 'no error')
-      t.equal(stdout.trimRight(), 'OK!')
       t.end()
     })
   })
