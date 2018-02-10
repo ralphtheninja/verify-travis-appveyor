@@ -30,6 +30,18 @@ test('travis', t => {
   t.same(main.travisVersions({
     matrix: {
       include: [
+        { node_js: '6' },
+        { node_js: '8' },
+        { node_js: '9' },
+        { node_js: '6' },
+        { node_js: '8' },
+        { node_js: '9' }
+      ]
+    }
+  }), [ '6', '8', '9' ])
+  t.same(main.travisVersions({
+    matrix: {
+      include: [
         { node_js: 6 },
         { node_js: 8 },
         { node_js: 9 }

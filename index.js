@@ -3,26 +3,34 @@
 const path = require('path')
 const parseYaml = require('read-yaml')
 const debug = require('debug')('verify-travis-appveyor')
+const unique = require('array-uniq')
 const equals = require('array-equal')
 const isEOL = require('lts-schedule').isEOL
 const cwd = process.cwd()
 
 const travisVersions = obj => {
-  if (Array.isArray(obj.node_js)) return obj.node_js
-  if (obj.matrix && Array.isArray(obj.matrix.include)) {
-    return obj.matrix.include
+  var result
+  if (Array.isArray(obj.node_js)) {
+    result = obj.node_js
+  } else if (obj.matrix && Array.isArray(obj.matrix.include)) {
+    result = obj.matrix.include
       .map(i => i.node_js)
       .filter(Boolean)
       .filter(i => String(i).toLowerCase() !== 'stable')
+  } else {
+    throw new Error('no valid node versions')
   }
-  throw new Error('no valid node versions')
+  return unique(result)
 }
 
 const appveyorVersions = obj => {
+  var result
   if (obj.environment && Array.isArray(obj.environment.matrix)) {
-    return obj.environment.matrix.map(i => i.nodejs_version).filter(Boolean)
+    result = obj.environment.matrix.map(i => i.nodejs_version).filter(Boolean)
+  } else {
+    throw new Error('no valid node versions')
   }
-  throw new Error('no valid node versions')
+  return unique(result)
 }
 
 const stringify = arr => {
