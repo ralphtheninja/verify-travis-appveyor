@@ -10,6 +10,14 @@ Useful as a maintenance script to ensure travis and appveyor are using the same 
 
 ## Install
 
+Add to your `devDependencies` as part of your test and/or release flow:
+
+```
+$ npm i verify-travis-appveyor --save-dev
+```
+
+Or, install globally for system wide availability:
+
 ```
 $ npm i verify-travis-appveyor -g
 ```
