@@ -1,9 +1,8 @@
 # verify-travis-appveyor
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ralphtheninja/verify-travis-appveyor.svg)](https://greenkeeper.io/)
-
 > Ensure node versions on travis and appveyor are consistent.
 
+[![npm](https://img.shields.io/npm/v/verify-travis-appveyor.svg)](https://www.npmjs.com/package/verifi-travis-appveyor)
 ![Node version](https://img.shields.io/node/v/verify-travis-appveyor.svg)
 [![Build Status](https://travis-ci.org/ralphtheninja/verify-travis-appveyor.svg?branch=master)](https://travis-ci.org/ralphtheninja/verify-travis-appveyor)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
