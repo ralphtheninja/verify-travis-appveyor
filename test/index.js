@@ -120,9 +120,10 @@ test('appveyor', t => {
 })
 
 test('cli', t => {
+  t.plan(3)
   t.test('fail', t => {
     const cwd = `${__dirname}/fail`
-    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+    exec('node ../../index.js', { cwd }, (err, stdout, stderr) => {
       t.ok(err, 'should be an error')
       t.equal(stderr.trimRight(), 'travis:["6","9"] and appveyor:["6","8"] are inconsistent')
       t.end()
@@ -130,7 +131,7 @@ test('cli', t => {
   })
   t.test('warning', t => {
     const cwd = `${__dirname}/warning`
-    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+    exec('node ../../index.js', { cwd }, (err, stdout, stderr) => {
       t.error(err, 'no error')
       const expected = 'WARNING: version 5 is EOL\n' +
               'WARNING: version 7 is EOL\n'
@@ -140,7 +141,7 @@ test('cli', t => {
   })
   t.test('success', t => {
     const cwd = `${__dirname}/success`
-    exec('../../index.js', { cwd }, (err, stdout, stderr) => {
+    exec('node ../../index.js', { cwd }, (err, stdout, stderr) => {
       t.error(err, 'no error')
       t.end()
     })
