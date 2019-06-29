@@ -1,6 +1,6 @@
 {
   "name": "verify-travis-appveyor",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Ensure node versions on travis and appveyor are consistent",
   "bin": {
     "verify-travis-appveyor": "index.js"
