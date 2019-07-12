@@ -12,11 +12,11 @@ test('travis', t => {
     node_js: []
   }), [])
   t.same(main.travisVersions({
-    node_js: [ '6', '8', '9' ]
-  }), [ '6', '8', '9' ])
+    node_js: ['6', '8', '9']
+  }), ['6', '8', '9'])
   t.same(main.travisVersions({
-    node_js: [ 6, 8, 9 ]
-  }), [ 6, 8, 9 ])
+    node_js: [6, 8, 9]
+  }), [6, 8, 9])
 
   t.same(main.travisVersions({
     matrix: {
@@ -26,7 +26,7 @@ test('travis', t => {
         { node_js: '9' }
       ]
     }
-  }), [ '6', '8', '9' ])
+  }), ['6', '8', '9'])
   t.same(main.travisVersions({
     matrix: {
       include: [
@@ -38,7 +38,7 @@ test('travis', t => {
         { node_js: '9' }
       ]
     }
-  }), [ '6', '8', '9' ])
+  }), ['6', '8', '9'])
   t.same(main.travisVersions({
     matrix: {
       include: [
@@ -47,7 +47,7 @@ test('travis', t => {
         { node_js: 9 }
       ]
     }
-  }), [ 6, 8, 9 ])
+  }), [6, 8, 9])
   t.same(main.travisVersions({
     matrix: {
       include: [
@@ -56,7 +56,7 @@ test('travis', t => {
         { node_js: 9 }
       ]
     }
-  }), [ 8, 9 ], 'filters out undefined')
+  }), [8, 9], 'filters out undefined')
   t.same(main.travisVersions({
     matrix: {
       include: [
@@ -67,7 +67,7 @@ test('travis', t => {
         { node_js: 'stable' }
       ]
     }
-  }), [ '6', '8', '9' ], 'filters out stable')
+  }), ['6', '8', '9'], 'filters out stable')
 
   t.end()
 })
@@ -96,7 +96,7 @@ test('appveyor', t => {
         { nodejs_version: '9' }
       ]
     }
-  }), [ '6', '8', '9' ])
+  }), ['6', '8', '9'])
   t.same(main.appveyorVersions({
     environment: {
       matrix: [
@@ -105,7 +105,7 @@ test('appveyor', t => {
         { nodejs_version: 9 }
       ]
     }
-  }), [ 6, 8, 9 ])
+  }), [6, 8, 9])
   t.same(main.appveyorVersions({
     environment: {
       matrix: [
@@ -114,7 +114,7 @@ test('appveyor', t => {
         { nodejs_version: 9 }
       ]
     }
-  }), [ 8, 9 ], 'filters out undefined')
+  }), [8, 9], 'filters out undefined')
 
   t.end()
 })
